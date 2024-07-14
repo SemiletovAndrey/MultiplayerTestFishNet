@@ -8,6 +8,7 @@ public class PlayerColorNetwork : NetworkBehaviour
 {
     public GameObject body;
     public Color endColor;
+
     public override void OnStartClient()
     {
         base.OnStartClient();
