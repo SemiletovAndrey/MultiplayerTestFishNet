@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlayerHealth : NetworkBehaviour
 {
-    [SerializeField] private readonly SyncVar<int> health = new SyncVar<int>(10);
+    private readonly SyncVar<int> health = new SyncVar<int>(10);
     public TextMeshPro text;
 
     public override void OnStartClient()
@@ -35,8 +35,6 @@ public class PlayerHealth : NetworkBehaviour
     [ObserversRpc]
     public void UpdateHealth(PlayerHealth script, int health)
     {
-        //script.health = health;
         script.text.text = health.ToString();
-
     }
 }
