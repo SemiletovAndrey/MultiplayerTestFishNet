@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlayerHealth : NetworkBehaviour
 {
-    private readonly SyncVar<int> health = new SyncVar<int>(10);
+    public readonly SyncVar<int> health = new SyncVar<int>(10);
     public TextMeshPro text;
 
     public override void OnStartClient()
@@ -16,25 +16,26 @@ public class PlayerHealth : NetworkBehaviour
             GetComponent<PlayerHealth>().enabled = false;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            UpdateHealthServer(this, -1);
-        }
-    }
-
-    [ServerRpc]
-    public void UpdateHealthServer(PlayerHealth script, int amountToChange)
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdateHealthServer( int amountToChange)
     {
         health.Value += amountToChange;
-        UpdateHealth(script, health.Value);
+        UpdateHealth(health.Value);
         Debug.Log(health.Value);
     }
 
     [ObserversRpc]
-    public void UpdateHealth(PlayerHealth script, int health)
+    public void UpdateHealth( int health)
     {
-        script.text.text = health.ToString();
+        text.text = health.ToString();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if(damage > 0)
+        {
+            throw new Exception("Invalid damage");
+        }
+        UpdateHealthServer(damage);
     }
 }
