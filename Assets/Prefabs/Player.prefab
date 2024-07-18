@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -1402582435553212071}
   - component: {fileID: 4440776923087438593}
   - component: {fileID: 2653134201763510283}
+  - component: {fileID: 8187363547712638310}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -117,6 +118,7 @@ MonoBehaviour:
   - {fileID: -1402582435553212071}
   - {fileID: 4440776923087438593}
   - {fileID: 2653134201763510283}
+  - {fileID: 8187363547712638310}
   <SerializedRootNetworkBehaviour>k__BackingField: {fileID: 0}
   <NestedRootNetworkBehaviours>k__BackingField: []
   SerializedTransformProperties:
@@ -279,7 +281,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739012360866782620}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73e7acdd8fc609445b2518657f0d92eb, type: 3}
   m_Name: 
@@ -294,6 +296,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   pickupPosition: {fileID: 1566959855326574769}
+--- !u!114 &8187363547712638310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739012360866782620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a729107ae73ef7e44af1e1d4ec008476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 7
+  _addedNetworkObject: {fileID: 6047183510097887197}
+  _networkObjectCache: {fileID: 6047183510097887197}
+  _inventoryObjects: []
+  invCanvasObject: {fileID: 370328162636724139, guid: c0059db9ca173484983bbfbd42196e97, type: 3}
+  inventoryButton: 9
+  pickupLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  pickupDistance: 2
+  pickupButton: 101
 --- !u!1 &3923712307039365925
 GameObject:
   m_ObjectHideFlags: 0
